@@ -4,12 +4,12 @@ import App from "./components/app/app";
 
 
 const Settings = {
-	ERRORS_COUNT: 3
+  ERRORS_COUNT: 3
 };
 
 ReactDOM.render(
-	<App 
-		errorsCount={Settings.ERRORS_COUNT}
-	/>,
-	document.querySelector(`#root`)
+    <App
+      errorsCount={Settings.ERRORS_COUNT}
+    />,
+    document.querySelector(`#root`)
 );
