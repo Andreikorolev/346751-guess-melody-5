@@ -11,7 +11,7 @@ class GameScreen extends PureComponent {
 
     this.state = {
       step: 0,
-    }
+    };
   }
 
   render() {
@@ -49,11 +49,13 @@ class GameScreen extends PureComponent {
           />
         );
     }
+
+    return <Redirect to="/"/>;
   }
 }
 
 GameScreen.propTypes = {
-  question = PropTypes.array.isRequired;
-}
+  questions: PropTypes.array.isRequired,
+};
 
 export default GameScreen;
