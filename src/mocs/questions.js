@@ -34,4 +34,4 @@ export default [
       artist: `Jim Beam`,
     }],
   }
-]
+];

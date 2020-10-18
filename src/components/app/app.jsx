@@ -11,7 +11,7 @@ import WinScreen from "../win-screen/win-screen";
 
 const App = (props) => {
 // eslint-disable-next-line react/prop-types
-  const {errorsCount} = props;
+  const {errorsCount, questions} = props;
 
   return (
     <BrowserRouter>
@@ -26,7 +26,7 @@ const App = (props) => {
           <ArtistQuestionScreen/>
         </Route>
         <Route exact path="/dev-genre">
-          <GenreQuestionScreen/>
+          <GenreQuestionScreen questions={questions}/>
         </Route>
         <Route exact path="/result">
           <WinScreen/>
