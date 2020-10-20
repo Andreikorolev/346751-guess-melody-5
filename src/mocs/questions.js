@@ -5,23 +5,23 @@ export default [
     type: `genre`,
     genre: `rock`,
     answers: [{
-      src: `https://upload.wikimedia.org.wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
+      src: `https://upload.wikimedia.org/wikipedia/commons/1/16/Dopenation_Audio.ogg`,
       genre: `rock`,
     }, {
-      src: `https://upload.wikimedia.org.wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
+      src: `https://upload.wikimedia.org/wikipedia/commons/1/16/Dopenation_Audio.ogg`,
       genre: `blues`,
     }, {
-      src: `https://upload.wikimedia.org.wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
+      src: `https://upload.wikimedia.org/wikipedia/commons/1/16/Dopenation_Audio.ogg`,
       genre: `jazz`,
     }, {
-      src: `https://upload.wikimedia.org.wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
+      src: `https://upload.wikimedia.org/wikipedia/commons/1/16/Dopenation_Audio.ogg`,
       genre: `rock`,
     }]
   }, {
     type: `artist`,
     song: {
       artist: `Jim Beam`,
-      src: `https://upload.wikimedia.org.wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
+      src: `https://upload.wikimedia.org/wikipedia/commons/1/16/Dopenation_Audio.ogg`,
     },
     answers: [{
       picture: `${AVATAR_URL}${Math.random()}`,
