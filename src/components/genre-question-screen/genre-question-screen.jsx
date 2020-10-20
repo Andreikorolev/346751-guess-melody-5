@@ -1,7 +1,6 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import {GameType} from "../../const";
-import AudioPlayer from "../audio-player/audio-player";
 
 
 class GengeQuestionScreen extends PureComponent {
@@ -9,14 +8,13 @@ class GengeQuestionScreen extends PureComponent {
     super(props);
 
     this.state = {
-      activePlayer: 0,
       answers: [false, false, false, false],
     };
   }
 
   render() {
-    const {onAnswer, question} = this.props;
-    const {answers: userAnswers, activePlayer} = this.state;
+    const {onAnswer, question, renderPlayer} = this.props;
+    const {answers: userAnswers} = this.state;
     const {
       answers,
       genre,
@@ -52,15 +50,7 @@ class GengeQuestionScreen extends PureComponent {
             >
               {answers.map((answer, i) => (
                 <div key={`${i}-${answer.src}`} className="track">
-                  <AudioPlayer
-                    onPlayButtonClick={() => {
-                      this.setState({
-                        activePlayer: activePlayer === i ? -1 : i,
-                      });
-                    }}
-                    isPlaying={i === activePlayer}
-                    src={answer.src}
-                  />
+                  {renderPlayer(answer.src, i)}
                   <div className="game__answer">
                     <input className="game__input visually-hidden" type="checkbox" name="answer"
                       value={`anwer-${i}`}
@@ -98,6 +88,7 @@ GengeQuestionScreen.propTypes = {
     genre: PropTypes.string.isRequired,
     type: PropTypes.oneOf([GameType.ARTIST, GameType.GENRE]).isRequired
   }).isRequired,
+  renderPlayer: PropTypes.func.isRequired,
 };
 
 export default GengeQuestionScreen;

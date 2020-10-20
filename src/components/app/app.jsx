@@ -1,10 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
-import ArtistQuestionScreen from "../artist-question-screen/artist-question-screen";
 import AuthScreen from "../auth-screen/auth-screen";
 import GameOverScreen from "../game-over-screen/game-over-screen";
-import GenreQuestionScreen from "../genre-question-screen/genre-question-screen";
 import WelcomeScreen from "../welcome-screen/welcome-screeen";
 import WinScreen from "../win-screen/win-screen";
 import GameScreen from "../game-screen/game-screen";
@@ -12,7 +10,6 @@ import GameScreen from "../game-screen/game-screen";
 
 const App = (props) => {
   const {errorsCount, questions} = props;
-  const [firstQuestion, secondQuestion] = questions;
 
   return (
     <BrowserRouter>
@@ -28,18 +25,6 @@ const App = (props) => {
         />
         <Route exact path="/login">
           <AuthScreen />
-        </Route>
-        <Route exact path="/dev-artist">
-          <ArtistQuestionScreen
-            question={secondQuestion}
-            onAnswer={() => {}}
-          />
-        </Route>
-        <Route exact path="/dev-genre">
-          <GenreQuestionScreen
-            question={firstQuestion}
-            onAnswer={() => {}}
-          />
         </Route>
         <Route exact path="/result">
           <WinScreen/>
