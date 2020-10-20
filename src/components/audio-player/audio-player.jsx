@@ -1,7 +1,7 @@
 import React, {PureComponent, Fragment, createRef} from "react";
 import PropTypes from "prop-types";
 
-export default class AudioPlayer extends PureComponent {
+class AudioPlayer extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -67,3 +67,5 @@ AudioPlayer.propTypes = {
   onPlayButtonClick: PropTypes.func.isRequired,
   src: PropTypes.string.isRequired,
 };
+
+export default AudioPlayer;
