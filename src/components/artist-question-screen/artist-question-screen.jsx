@@ -39,7 +39,7 @@ const ArtistQuestionScreen = (props) => {
 
           <form className="game__artist">
             {answers.map((answer, i) => (
-              <div key={answer.artist} className="artist">
+              <div key={`${i}-${answer.artist}`} className="artist">
                 <input className="artist__input visually-hidden" type="radio" name="answer"
                   id={`answer-${i}`}
                   value={`answer-${i}`}
@@ -49,7 +49,7 @@ const ArtistQuestionScreen = (props) => {
                   }}
                 />
                 <label className="artist__name" htmlFor={`answer-${i}`}>
-                  <img className="artist__picture" src={answer.picture} alt="Пелагея" />
+                  <img className="artist__picture" src={answer.picture} alt={answer.artist} />
                   {answer.artist}
                 </label>
               </div>
