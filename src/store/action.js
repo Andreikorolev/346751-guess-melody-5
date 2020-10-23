@@ -5,7 +5,7 @@ export const ActionType = {
 };
 
 export const ActionCreator = {
-  incsrementStep: () => ({
+  incrementStep: () => ({
     type: ActionType.INCREMENT_STEP,
     payload: 1,
   }),

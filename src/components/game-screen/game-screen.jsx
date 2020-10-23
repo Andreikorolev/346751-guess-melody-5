@@ -6,13 +6,14 @@ import {ActionCreator} from "../../store/action";
 import {GameType} from "../../const";
 import ArtistQuestionScreen from "../artist-question-screen/artist-question-screen";
 import GenreQuestionScreen from "../genre-question-screen/genre-question-screen";
+
 import withAudioPlayer from "../../hocs/with-audio-player/with-audio-player";
 
 const GenreQuestionScreenHOC = withAudioPlayer(GenreQuestionScreen);
 const ArtistQuestionScreenHOC = withAudioPlayer(ArtistQuestionScreen);
 
 const GameScreen = (props) => {
-  const {questions, step, resetGame, onUserAnswer} = props;
+  const {questions, step, onUserAnswer, resetGame} = props;
   const question = questions[step];
 
   if (step >= questions.length || !question) {
@@ -56,10 +57,10 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   resetGame() {
-    dispatch(ActionCreator.resetGame);
+    dispatch(ActionCreator.resetGame());
   },
   onUserAnswer() {
-    dispatch(ActionCreator.incrementStep);
+    dispatch(ActionCreator.incrementStep());
   }
 });
 
