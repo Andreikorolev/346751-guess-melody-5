@@ -60,6 +60,7 @@ GameScreen.propTypes = {
 const mapStateToProps = (state) => ({
   step: state.step,
   mistakes: state.mistakes,
+  questions: state.questions
 });
 
 const mapDispatchToProps = (dispatch) => ({
