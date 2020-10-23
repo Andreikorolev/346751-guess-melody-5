@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import {GameType} from "../../const";
 
 const ArtistQuestionScreen = (props) => {
-  const {onAnswer, question, renderPlayer} = props;
+  const {onAnswer, question, renderPlayer, children} = props;
   const {
     answers,
     song,
@@ -22,11 +22,7 @@ const ArtistQuestionScreen = (props) => {
             <circle className="timer__line" cx="390" cy="390" r="370" style={{filter: `url(#blur)`, transform: `rotate(-90deg) scaleY(-1)`, transformOrigin: `center`}} />
           </svg>
 
-          <div className="game__mistakes">
-            <div className="wrong"></div>
-            <div className="wrong"></div>
-            <div className="wrong"></div>
-          </div>
+          {children}
         </header>
 
         <section className="game__screen">
@@ -39,7 +35,7 @@ const ArtistQuestionScreen = (props) => {
 
           <form className="game__artist">
             {answers.map((answer, i) => (
-              <div key={answer.artist} className="artist">
+              <div key={`${i}-${answer.artist}`} className="artist">
                 <input className="artist__input visually-hidden" type="radio" name="answer"
                   id={`answer-${i}`}
                   value={`answer-${i}`}
@@ -49,7 +45,7 @@ const ArtistQuestionScreen = (props) => {
                   }}
                 />
                 <label className="artist__name" htmlFor={`answer-${i}`}>
-                  <img className="artist__picture" src={answer.picture} alt="Пелагея" />
+                  <img className="artist__picture" src={answer.picture} alt={answer.artist} />
                   {answer.artist}
                 </label>
               </div>
@@ -75,6 +71,7 @@ ArtistQuestionScreen.propTypes = {
     type: PropTypes.oneOf([GameType.ARTIST, GameType.GENRE]).isRequired,
   }).isRequired,
   renderPlayer: PropTypes.func.isRequired,
+  children: PropTypes.element.isRequired,
 };
 
 export default ArtistQuestionScreen;

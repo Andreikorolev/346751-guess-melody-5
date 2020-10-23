@@ -1,15 +1,14 @@
 import React from "react";
-import PropTypes from "prop-types";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 import AuthScreen from "../auth-screen/auth-screen";
 import GameOverScreen from "../game-over-screen/game-over-screen";
 import WelcomeScreen from "../welcome-screen/welcome-screeen";
 import WinScreen from "../win-screen/win-screen";
 import GameScreen from "../game-screen/game-screen";
+import {MAX_MISTAKE_COUNT} from "../../const";
 
 
-const App = (props) => {
-  const {errorsCount, questions} = props;
+const App = () => {
 
   return (
     <BrowserRouter>
@@ -19,7 +18,7 @@ const App = (props) => {
           render={({history}) => (
             <WelcomeScreen
               onPlayButtonClick={() => history.push(`/game`)}
-              errorsCount={errorsCount}
+              errorsCount={MAX_MISTAKE_COUNT}
             />
           )}
         />
@@ -34,18 +33,12 @@ const App = (props) => {
         </Route>
         <Route exact path="/game">
           <GameScreen
-            errorsCount={errorsCount}
-            questions={questions}
+            errorsCount={MAX_MISTAKE_COUNT}
           />
         </Route>
       </Switch>
     </BrowserRouter>
   );
-};
-
-App.propTypes = {
-  errorsCount: PropTypes.number.isRequired,
-  questions: PropTypes.array.isRequired,
 };
 
 export default App;
