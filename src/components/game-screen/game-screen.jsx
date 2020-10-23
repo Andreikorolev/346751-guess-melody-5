@@ -6,6 +6,7 @@ import {ActionCreator} from "../../store/action";
 import {GameType} from "../../const";
 import ArtistQuestionScreen from "../artist-question-screen/artist-question-screen";
 import GenreQuestionScreen from "../genre-question-screen/genre-question-screen";
+import Mistakes from "../mistakes/mistakes";
 
 import withAudioPlayer from "../../hocs/with-audio-player/with-audio-player";
 
@@ -13,7 +14,7 @@ const GenreQuestionScreenHOC = withAudioPlayer(GenreQuestionScreen);
 const ArtistQuestionScreenHOC = withAudioPlayer(ArtistQuestionScreen);
 
 const GameScreen = (props) => {
-  const {questions, step, onUserAnswer, resetGame} = props;
+  const {questions, step, onUserAnswer, resetGame, mistakes} = props;
   const question = questions[step];
 
   if (step >= questions.length || !question) {
@@ -30,14 +31,18 @@ const GameScreen = (props) => {
         <ArtistQuestionScreenHOC
           question={question}
           onAnswer={onUserAnswer}
-        />
+        >
+          <Mistakes count={mistakes} />
+        </ArtistQuestionScreenHOC>
       );
     case GameType.GENRE:
       return (
         <GenreQuestionScreenHOC
           question={question}
           onAnswer={onUserAnswer}
-        />
+        >
+          <Mistakes count={mistakes} />
+        </GenreQuestionScreenHOC>
       );
   }
 
@@ -49,10 +54,12 @@ GameScreen.propTypes = {
   step: PropTypes.number.isRequired,
   onUserAnswer: PropTypes.func.isRequired,
   resetGame: PropTypes.func.isRequired,
+  mistakes: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   step: state.step,
+  mistakes: state.mistakes,
 });
 
 const mapDispatchToProps = (dispatch) => ({
