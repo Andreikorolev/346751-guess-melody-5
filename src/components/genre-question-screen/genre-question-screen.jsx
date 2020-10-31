@@ -42,6 +42,9 @@ class GengeQuestionScreen extends PureComponent {
               onSubmit={(evt) => {
                 evt.preventDefault();
                 onAnswer(question, this.state.answers);
+                this.setState({
+                  answers: this.state.answers.fill(false)
+                });
               }}
             >
               {answers.map((answer, i) => (
