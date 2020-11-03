@@ -59,6 +59,6 @@ const withAudio = (Component) => {
   WithAudio.PropTypes = {};
 
   return WithAudio;
-}
+};
 
 export default withAudio;
