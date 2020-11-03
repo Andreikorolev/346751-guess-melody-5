@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import {ACtionCreator} from "../../store/action";
+import {ActionCreator} from "../../store/action";
 
 const GameOverScreen = ({onReplayButtonClick, resetGame}) => {
   return (
@@ -32,7 +32,7 @@ GameOverScreen.propTypes = {
 
 const mapDispatchToProps = (dispatch) => ({
   resetGame() {
-    dispatch(ACtionCreator.resetGame());
+    dispatch(ActionCreator.resetGame());
   },
 });
 

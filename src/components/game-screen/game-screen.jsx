@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import {Redirect} from "react-router-dom";
 import {connect} from "react-redux";
 import {ActionCreator} from "../../store/action";
-import {GameType} from "../../const";
+import {GameType, MAX_MISTAKE_COUNT} from "../../const";
 import ArtistQuestionScreen from "../artist-question-screen/artist-question-screen";
 import GenreQuestionScreen from "../genre-question-screen/genre-question-screen";
 import Mistakes from "../mistakes/mistakes";
@@ -15,14 +15,19 @@ const GenreQuestionScreenHOC = withAudioPlayer(withUserAnswer(GenreQuestionScree
 const ArtistQuestionScreenHOC = withAudioPlayer(ArtistQuestionScreen);
 
 const GameScreen = (props) => {
-  const {questions, step, onUserAnswer, resetGame, mistakes} = props;
+  const {questions, step, onUserAnswer, mistakes} = props;
   const question = questions[step];
 
+  if (mistakes >= MAX_MISTAKE_COUNT) {
+    return (
+      <Redirect to="/lose" />
+    );
+  }
+
   if (step >= questions.length || !question) {
-    resetGame();
 
     return (
-      <Redirect to="/" />
+      <Redirect to="/result" />
     );
   }
 
@@ -54,7 +59,6 @@ GameScreen.propTypes = {
   questions: PropTypes.array.isRequired,
   step: PropTypes.number.isRequired,
   onUserAnswer: PropTypes.func.isRequired,
-  resetGame: PropTypes.func.isRequired,
   mistakes: PropTypes.number.isRequired,
 };
 
