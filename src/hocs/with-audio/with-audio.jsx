@@ -56,7 +56,10 @@ const withAudio = (Component) => {
     }
   }
 
-  WithAudio.PropTypes = {};
+  WithAudio.propTypes = {
+    isPlaying: PropTypes.bool.isRequired,
+    src: PropTypes.string.isRequired,
+  };
 
   return WithAudio;
 };
