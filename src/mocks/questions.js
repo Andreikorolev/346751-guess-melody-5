@@ -40,13 +40,13 @@ export default [
       src: `https://upload.wikimedia.org/wikipedia/commons/1/16/Dopenation_Audio.ogg`,
     },
     answers: [{
-      picture: `${AVATAR_URL}${Math.random()}`,
+      picture: `${AVATAR_URL}/${Math.random()}`,
       artist: `John Snow`,
     }, {
-      picture: `${AVATAR_URL}${Math.random()}`,
+      picture: `${AVATAR_URL}/${Math.random()}`,
       artist: `Jack Daniels`,
     }, {
-      picture: `${AVATAR_URL}${Math.random()}`,
+      picture: `${AVATAR_URL}/${Math.random()}`,
       artist: `Jim Beam`,
     }],
   }, {
@@ -56,13 +56,13 @@ export default [
       src: `https://upload.wikimedia.org/wikipedia/commons/1/16/Dopenation_Audio.ogg`,
     },
     answers: [{
-      picture: `${AVATAR_URL}${Math.random()}`,
+      picture: `${AVATAR_URL}/${Math.random()}`,
       artist: `Deep Purple`,
     }, {
-      picture: `${AVATAR_URL}${Math.random()}`,
+      picture: `${AVATAR_URL}/${Math.random()}`,
       artist: `RHCP`,
     }, {
-      picture: `${AVATAR_URL}${Math.random()}`,
+      picture: `${AVATAR_URL}/${Math.random()}`,
       artist: `Nirvana`,
     }],
   }
