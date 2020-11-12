@@ -1,9 +1,8 @@
 import {extend} from "../../../utils";
 import {ActionType} from "../../action";
-import questions from "../../../mocks/questions";
 
 const initialState = {
-  questions,
+  questions: [],
 };
 
 export const gameData = (state = initialState, action) => {
