@@ -5,6 +5,8 @@ export const ActionType = {
   INCREMENT_MISTAKES: `INCREMENT_MISTAKES`,
   INCREMENT_STEP: `INCREMENT_STEP`,
   RESET_GAME: `RESET_GAME`,
+  LOAD_QUESTIONS: `LOAD_QUESTIONS`,
+  REQUIRED_AUTHORIZATION: `REQUIRED_AUTHORIZATION`,
 };
 
 export const ActionCreator = {
@@ -31,5 +33,13 @@ export const ActionCreator = {
       type: ActionType.INCREMENT_MISTAKES,
       payload: answerIsCorrect ? 0 : 1,
     };
-  }
+  },
+  loadQuestions: (questions) => ({
+    type: ActionType.LOAD_QUESTIONS,
+    payload: questions,
+  }),
+  requireAuthorization: (status) => ({
+    type: ActionType.REQUIRED_AUTHORIZATION,
+    payload: status,
+  }),
 };
